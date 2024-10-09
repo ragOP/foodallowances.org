@@ -7,7 +7,9 @@ import "./styles.scss";
 import { scrollTo } from "../utils";
 import { ToastContainer, toast, cssTransition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Head_bg from "../assets/qq.png";
+// import Head_bg from "../assets/qq.png";
+import Head_bg from "../assets/main2.jpg"
+
 import {  Link } from 'react-router-dom';
 import Headline from "../assets/headline_spandeb1.png";
 
