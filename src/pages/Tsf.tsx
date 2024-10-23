@@ -347,17 +347,17 @@ export default function Tsf() {
             <div className="main-descrition-5-5">
               <div className="main-des-title-6-7">
                 <b>
-               Seniors On Medicare Can Unlock Upto $900 Monthly Food Allowance This Week!
+               Seniors On Medicare Can Unlock Their Food Allowance Worth Up To $900!
                 </b>
               </div>
               {/* <img className='topic-img-larger' src = {Headline} alt = "head"/> */}
               <img className="topic-img-middle-z" src={Head_bg} alt="head" />
               <div  style={{marginTop:'14px'}}className="main-des-5">
-         Eligible Americans are taking advantage of this opportunity to secure their monthly allowance card, which covers the cost of groceries, rent, bills, and other monthly expenses.
+        Millions of Americans are taking advantage of this opportunity to receive their monthly allowance card, which provides financial support for groceries, rent, bills, and other essential expenses.
 
               </div>
               <div className="main-des-5"  style={{marginTop:'-5px'}}>
-        Use your allowance card at your favorite places like Walmart, Target, CVS, and many more. Answer the questions below to check your eligibility now!
+Shop at your favorite stores like Walmart, Target, CVS, and more with your allowance card! Simply answer the questions below to see if you’re eligible now!
               </div>
               {/* <div className='main-des-5' style = {{marginTop:"1rem"}}><b>Simplemente responda las siguientes preguntas:</b></div> */}
             </div>
