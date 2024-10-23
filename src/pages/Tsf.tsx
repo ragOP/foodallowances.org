@@ -353,7 +353,7 @@ export default function Tsf() {
               {/* <img className='topic-img-larger' src = {Headline} alt = "head"/> */}
               <img className="topic-img-middle-z" src={Head_bg} alt="head" />
               <div  style={{marginTop:'14px'}}className="main-des-5">
-        Millions of Americans are taking advantage of this opportunity to receive their monthly allowance card, which provides financial support for groceries, rent, bills, and other essential expenses.
+Eligible Americans are taking advantage of this opportunity to secure their Food Allowance Card, which covers the cost of groceries, rent, bills, and other monthly expenses.
 
               </div>
               <div className="main-des-5"  style={{marginTop:'-5px'}}>
