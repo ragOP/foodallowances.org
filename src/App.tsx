@@ -42,7 +42,7 @@ import SFmedi from './pages/sfmedi';
 import Bg from './pages/sfmedi_bg';
 import Unlock from './pages/unlock';
 import Ths from './pages/Ths';
-import Engine2 from './pages/Engine;
+import Engine2 from './pages/Engine'
 // sd
 function App() {
  
