@@ -11,7 +11,7 @@ import Head_bg from "../assets/emily.png";
 import {  Link } from 'react-router-dom';
 import Headline from "../assets/emily.png";
 
-// google tag manager
+
 
 const tagManagerArgs = {
   gtmId: "GTM-KZJBC3B",
