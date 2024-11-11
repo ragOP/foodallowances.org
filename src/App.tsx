@@ -42,6 +42,7 @@ import SFmedi from './pages/sfmedi';
 import Bg from './pages/sfmedi_bg';
 import Unlock from './pages/unlock';
 import Ths from './pages/Ths';
+import Engine from './pages/Engine;
 
 function App() {
  
@@ -60,6 +61,7 @@ function App() {
           <Route path = "/engmed900" element = {<VeryNew />} />
           <Route path = "/engmed-tsf" element = {<Tsf/>} />
          <Route path = "/engmed-ths" element = {<Ths/>} />
+         <Route path = "/ths-engine" element = {<Engine/>} />
           <Route path = "/congrats" element = {<Congrats/>} />
 {/*          njxd */}
 <Route path = "/engmed900nb" element = {<Midnight />} />
