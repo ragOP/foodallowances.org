@@ -270,7 +270,7 @@ export default function Abc() {
     if (quiz === "Are you over the age of 64?  ") {
       setYes("Yes")
       setNo("No")
-      setQuiz("2. Do you live in the United States?");
+      setQuiz("Are You Currently Enrolled in Medicare Part A or Part B?");
     } else {
       setStep("Reviewing Your Answers...");
      
@@ -335,47 +335,53 @@ export default function Abc() {
 
 
   const handleQuizN = () => {
-    appendToURL('ab', 'no');
-
-    // Update the _rgba_tags array
-    const updatedTags = [...rgbaTags, { ab: 'no' }];
-    setRgbaTags(updatedTags);
-    (window as any)._rgba_tags = updatedTags; // Set _rgba_tags on window with assertion
+    if (quiz === "Are you over the age of 64?  ") {
+      // Transition to the second question when "NO" is clicked on the first question
+      setQuiz("Are You Currently Enrolled in Medicare Part A or Part B?");
+      // Set the options for the second question (Yes and No)
+      setYes("Yes");
+      setNo("No");
+    } else if (quiz === "Are You Currently Enrolled in Medicare Part A or Part B?") {
+      // Logic for when the "NO" button is pressed on the second question
+      appendToURL('ab', 'no');
   
-    topScroll("btn");
-    if (quiz === "Are you over the age of 60?  ") {
-      setYes("Yes")
-      setNo("No")
-      setQuiz("2. Do you live in the United States?");
-    } else {
+      // Update the _rgba_tags array
+      const updatedTags = [...rgbaTags, { ab: 'no' }];
+      setRgbaTags(updatedTags);
+      (window as any)._rgba_tags = updatedTags;
+  
+      // Scroll to the "NO" button section
+      topScroll("btn");
+  
+      // Update quiz state for next question or review step
       setStep("Reviewing Your Answers...");
-    
       topScroll("top");
+  
+      // Update visit data using Axios
+      axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
+        const _id = data[0]._id;
+        const _visits = data[0].visits;
+        const _views = data[0].views;
+        const _calls = data[0].calls;
+        const _positives = data[0].positives;
+        const _negatives = data[0].negatives;
+        const visits = {
+          visits: _visits,
+          views: _views,
+          calls: _calls,
+          positives: _positives,
+          negatives: _negatives + 1,  // Increment negative count
+        };
+        axios
+          .put(
+            process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+            visits
+          )
+          .catch((err) => console.log(err));
+      });
     }
-
-    axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
-      const _id = data[0]._id;
-      const _visits = data[0].visits;
-      const _views = data[0].views;
-      const _calls = data[0].calls;
-      const _positives = data[0].positives;
-      const _negatives = data[0].negatives;
-      const visits = {
-        visits: _visits,
-        views: _views,
-        calls: _calls,
-        positives: _positives,
-        negatives: _negatives + 1,
-      };
-      axios
-        .put(
-          process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
-          visits
-        )
-        .catch((err) => console.log(err));
-    });
   };
-
+  
   return (
     <div>
      <ToastContainer />
