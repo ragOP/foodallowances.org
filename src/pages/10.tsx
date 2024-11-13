@@ -382,6 +382,10 @@ export default function Abc() {
     }
   };
 
+  useEffect(()=>{
+    const url = window.location.href.split('?')[0]; // Remove query params from URL
+    window.history.replaceState(null, '', url);
+  },[])
   return (
     <div>
      <ToastContainer />
