@@ -300,7 +300,48 @@ export default function Abc() {
     });
   };
 
+  const [rgbaTags, setRgbaTags] = useState(
+    (window as any)._rgba_tags || [] // Temporary assertion for _rgba_tags
+  );
+  
+  // Function to append the parameter to the URL
+  // Function to append the parameter to the URL
+  const appendToURL = (param: string, value: string) => {
+    let url = window.location.href;
+    const hashIndex = url.indexOf('#');
+    let hash = '';
+
+    // Check and save hash part of the URL
+    if (hashIndex !== -1) {
+      hash = url.substring(hashIndex);
+      url = url.substring(0, hashIndex);
+    }
+
+    const newParam = `${param}=${encodeURIComponent(value)}`;
+    if (url.includes('?')) {
+      if (url.includes(`${param}=`)) {
+        const regex = new RegExp(`${param}=[^&]*`);
+        url = url.replace(regex, newParam);
+      } else {
+        url += `&${newParam}`;
+      }
+    } else {
+      url += `?${newParam}`;
+    }
+
+    // Update the URL without reloading the page
+    window.history.pushState(null, '', url + hash);
+  };
+
+
   const handleQuizN = () => {
+    appendToURL('ab', 'no');
+
+    // Update the _rgba_tags array
+    const updatedTags = [...rgbaTags, { ab: 'no' }];
+    setRgbaTags(updatedTags);
+    (window as any)._rgba_tags = updatedTags; // Set _rgba_tags on window with assertion
+  
     topScroll("btn");
     if (quiz === "Are you over the age of 60?  ") {
       setYes("Yes")
@@ -369,7 +410,7 @@ export default function Abc() {
                 <div className="answer-btn-5" onClick={handleQuizP}>
               {yes}
                 </div>
-                <div   id="abno"  className="answer-btn-5" onClick={handleQuizN}>
+                <div    className="answer-btn-5" onClick={handleQuizN}>
               {no}
                 </div>
               </div>
