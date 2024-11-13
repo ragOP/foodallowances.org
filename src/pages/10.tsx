@@ -369,7 +369,7 @@ export default function Abc() {
                 <div className="answer-btn-5" onClick={handleQuizP}>
               {yes}
                 </div>
-                <div className="answer-btn-5" onClick={handleQuizN}>
+                <div   id="abno"  className="answer-btn-5" onClick={handleQuizN}>
               {no}
                 </div>
               </div>
