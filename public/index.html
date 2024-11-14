@@ -41,45 +41,7 @@
   <script src=https://b-js.ringba.com/CA1a16b597ee204279b113debdbea8413c async></script>
   </head>
   <body>
-    <script>
-const noAbElement = document.querySelector('#abno');
-
-noAbElement.addEventListener('click',()=>{
-
-  appendToURL('ab', 'no');
-  window._rgba_tags = window._rgba_tags || [];
-//     window._rgba_tags.push({
-//     "ab": "no"
-// });
-})
-
-function appendToURL(param, value) {
-    var url = window.location.href;
-    var hashIndex = url.indexOf('#');
-    var hash = '';
-
-    if (hashIndex !== -1) {
-    hash = url.substring(hashIndex); // Save the hash part
-    url = url.substring(0, hashIndex); // Remove the hash part from the URL
-}
-
-    var newParam = param + '=' + encodeURIComponent(value);
-    if (url.indexOf('?') > -1) {
-    if (url.indexOf(param + '=') > -1) {
-    var regex = new RegExp(param + '=[^&]*');
-    url = url.replace(regex, newParam);
-} else {
-    url += '&' + newParam;
-}
-} else {
-    url += '?' + newParam;
-}
-
-    window.history.pushState(null, '', url + hash); // Add the hash back if it existed
-}
-
-    </script>
-
+ 
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9PCFWQD"
