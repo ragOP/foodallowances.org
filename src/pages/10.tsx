@@ -300,38 +300,39 @@ export default function Abc() {
     });
   };
 
-  const [rgbaTags, setRgbaTags] = useState(
-    (window as any)._rgba_tags || [] // Temporary assertion for _rgba_tags
+  const [rgbaTags, setRgbaTags] = useState<{ ab: string }[]>(
+    window._rgba_tags || []
   );
   
-  // Function to append the parameter to the URL
-  // Function to append the parameter to the URL
-  const appendToURL = (param: string, value: string) => {
-    let url = window.location.href;
-    const hashIndex = url.indexOf('#');
-    let hash = '';
+  // console.log('rgbaTags',rgbaTags);
+  // // Function to append the parameter to the URL
+  // // Function to append the parameter to the URL
+  // const appendToURL = (param: string, value: string) => {
+  //   let url = window.location.href;
+  //   const hashIndex = url.indexOf('#');
+  //   let hash = '';
 
-    // Check and save hash part of the URL
-    if (hashIndex !== -1) {
-      hash = url.substring(hashIndex);
-      url = url.substring(0, hashIndex);
-    }
+  //   // Check and save hash part of the URL
+  //   if (hashIndex !== -1) {
+  //     hash = url.substring(hashIndex);
+  //     url = url.substring(0, hashIndex);
+  //   }
 
-    const newParam = `${param}=${encodeURIComponent(value)}`;
-    if (url.includes('?')) {
-      if (url.includes(`${param}=`)) {
-        const regex = new RegExp(`${param}=[^&]*`);
-        url = url.replace(regex, newParam);
-      } else {
-        url += `&${newParam}`;
-      }
-    } else {
-      url += `?${newParam}`;
-    }
+  //   const newParam = `${param}=${encodeURIComponent(value)}`;
+  //   if (url.includes('?')) {
+  //     if (url.includes(`${param}=`)) {
+  //       const regex = new RegExp(`${param}=[^&]*`);
+  //       url = url.replace(regex, newParam);
+  //     } else {
+  //       url += `&${newParam}`;
+  //     }
+  //   } else {
+  //     url += `?${newParam}`;
+  //   }
 
-    // Update the URL without reloading the page
-    window.history.pushState(null, '', url + hash);
-  };
+  //   // Update the URL without reloading the page
+  //   window.history.pushState(null, '', url + hash);
+  // };
 
 
   const handleQuizN = () => {
@@ -346,11 +347,16 @@ export default function Abc() {
       // appendToURL('ab', 'no');
   
       // Update the _rgba_tags array
-      const updatedTags = [...rgbaTags, { ab: 'no' }];
-      setRgbaTags(updatedTags);
+      // const updatedTags = [...rgbaTags, { ab: 'no' }];
+      // setRgbaTags(updatedTags);
       // (window as any)._rgba_tags = updatedTags;
-  
+      console.log('Before updating _rgba_tags:', window._rgba_tags);
       // Scroll to the "NO" button section
+      window._rgba_tags = window._rgba_tags || [];
+      window._rgba_tags.push({
+      "ab": "no"
+  });
+  console.log('After updating _rgba_tags:', window._rgba_tags);
       topScroll("btn");
   
       // Update quiz state for next question or review step
