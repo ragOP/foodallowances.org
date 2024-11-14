@@ -346,9 +346,9 @@ export default function Abc() {
       appendToURL('ab', 'no');
   
       // Update the _rgba_tags array
-      const updatedTags = [...rgbaTags, { ab: 'no' }];
-      setRgbaTags(updatedTags);
-      (window as any)._rgba_tags = updatedTags;
+      // const updatedTags = [...rgbaTags, { ab: 'no' }];
+      // setRgbaTags(updatedTags);
+      // (window as any)._rgba_tags = updatedTags;
   
       // Scroll to the "NO" button section
       topScroll("btn");
