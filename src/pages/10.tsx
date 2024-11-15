@@ -352,7 +352,7 @@ export default function Abc() {
       // (window as any)._rgba_tags = updatedTags;
       console.log('Before updating _rgba_tags:', window._rgba_tags);
       // Scroll to the "NO" button section
-      window._rgba_tags = window._rgba_tags || [];
+      window._rgba_tags[0] = {"ab":"no"}
       window._rgba_tags.push({
       "ab": "no"
   });
