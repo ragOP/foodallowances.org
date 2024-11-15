@@ -344,11 +344,17 @@ export default function Tsf() {
     } else if (quiz === "Are You Currently Enrolled in Medicare Part A or Part B?") {
       // Logic for when the "NO" button is pressed on the second question
       appendToURL('ab', 'no');
-  
+      console.log('Before updating _rgba_tags:', window._rgba_tags);
+      // Scroll to the "NO" button section
+      window._rgba_tags[0] = {"ab":"no"}
+      window._rgba_tags.push({
+      "ab": "no"
+  });
+  console.log('After updating _rgba_tags:', window._rgba_tags);
       // Update the _rgba_tags array
-      const updatedTags = [...rgbaTags, { ab: 'no' }];
-      setRgbaTags(updatedTags);
-      (window as any)._rgba_tags = updatedTags;
+      // const updatedTags = [...rgbaTags, { ab: 'no' }];
+      // setRgbaTags(updatedTags);
+      // (window as any)._rgba_tags = updatedTags;
   
       // Scroll to the "NO" button section
       topScroll("btn");
