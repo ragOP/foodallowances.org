@@ -300,9 +300,9 @@ export default function Abc() {
     });
   };
 
-  const [rgbaTags, setRgbaTags] = useState<{ ab: string }[]>(
-    window._rgba_tags || []
-  );
+  // const [rgbaTags, setRgbaTags] = useState<{ ab: string }[]>(
+  //   window._rgba_tags || []
+  // );
   
   // console.log('rgbaTags',rgbaTags);
   // // Function to append the parameter to the URL
