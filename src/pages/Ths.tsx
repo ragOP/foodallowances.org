@@ -477,7 +477,7 @@ Use your allowance card at your favorite places like Walmart, Target, CVS, and m
         
         </div>
 
-<p>G2 Licensed Agent : Gregory K. Teipelz</p>
+{/* <p>G2 Licensed Agent : Gregory K. Teipelz</p> */}
         {/* <p>{zipCode} </p> */}
       </div>
 {/*       <ToastContainer
