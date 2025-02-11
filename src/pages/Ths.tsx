@@ -173,6 +173,7 @@ export default function Tsf() {
   }, []);
 
   const handleCall = () => {
+    getButtonClick({ buttonId: 5 })
     axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
       const _id = data[0]._id;
       const _visits = data[0].visits;
@@ -271,10 +272,12 @@ export default function Tsf() {
       setYes("Yes")
       setNo("No")
       setQuiz("Are You Currently Enrolled in Medicare Part A or Part B?");
+        getButtonClick({ buttonId: 1 })
     } else {
       setStep("Reviewing Your Answers...");
      
       topScroll("top");
+       getButtonClick({ buttonId: 3 })
     }
 
     axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
@@ -341,6 +344,7 @@ export default function Tsf() {
       // Set the options for the second question (Yes and No)
       setYes("Yes");
       setNo("No");
+        getButtonClick({ buttonId: 2 })
     } else if (quiz === "Are You Currently Enrolled in Medicare Part A or Part B?") {
       // Logic for when the "NO" button is pressed on the second question
       appendToURL('ab', 'no');
@@ -362,6 +366,7 @@ export default function Tsf() {
       // Update quiz state for next question or review step
       setStep("Reviewing Your Answers...");
       topScroll("top");
+        getButtonClick({ buttonId: 4 })
   
       // Update visit data using Axios
       axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
@@ -387,7 +392,76 @@ export default function Tsf() {
       });
     }
   };
+ const websiteViewCount = async () => {
+    await fetch("https://phonepe-be.onrender.com/api/user/website/visit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "websiteId": 10001,
+        "websiteName": "https://www.foodallowances.org/engmed-ths",
+      }),
+    });
+  }
 
+  const getButtonClick = async ({ buttonId }: { buttonId: number }) => {
+    await fetch("https://phonepe-be.onrender.com/api/user/click", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "websiteId": 10001,
+        "buttonId": buttonId,
+      }),
+    });
+  }
+
+  useEffect(() => {
+    websiteViewCount()
+  }, [])
+
+
+  const handleSession = async () => {
+  
+    const generateSessionId = () => {
+      return 'session-' + Math.random().toString(36).substr(2, 9);
+    };
+
+    const sessionId = generateSessionId();
+    async function endSession() {
+      const response = await axios.post('https://phonepe-be.onrender.com/api/user/session/end', { websiteId: 10001, sessionId });
+      console.log('Session ended. Duration:', response.data.duration, 'seconds');
+    }
+
+    try {
+      // Start the session
+      await axios.post('https://phonepe-be.onrender.com/api/user/session/start', { websiteId:10001, sessionId });
+      console.log('Session started');
+
+      // Record an interaction
+      await axios.post('https://phonepe-be.onrender.com/api/user/session/interaction', { websiteId:10001, sessionId });
+      console.log('Interaction recorded');
+
+      // End the session after 5 seconds
+      window.addEventListener('beforeunload', endSession);
+
+      setTimeout(endSession, 5000);
+
+      return () => {
+        endSession();
+        window.removeEventListener('beforeunload', endSession);
+      };
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  useEffect(() => {
+    handleSession();
+  }, []);
   useEffect(()=>{
     const url = window.location.href.split('?')[0]; // Remove query params from URL
     window.history.replaceState(null, '', url);
