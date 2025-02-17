@@ -393,26 +393,26 @@ export default function Tsf() {
     }
   };
  const websiteViewCount = async () => {
-    await fetch("https://phonepe-be.onrender.com/api/user/website/visit", {
+    await fetch("https://anlyatical-dashboard.onrender.com/api/website", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "websiteId": 10001,
-        "websiteName": "https://www.foodallowances.org/engmed-ths",
+        "websiteId": 102,
+        "websiteName": "foodallowances.org/engmed-ths",
       }),
     });
   }
 
   const getButtonClick = async ({ buttonId }: { buttonId: number }) => {
-    await fetch("https://phonepe-be.onrender.com/api/user/click", {
+    await fetch("https://anlyatical-dashboard.onrender.com/api/button", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "websiteId": 10001,
+        "websiteId": 102,
         "buttonId": buttonId,
       }),
     });
@@ -431,17 +431,17 @@ export default function Tsf() {
 
     const sessionId = generateSessionId();
     async function endSession() {
-      const response = await axios.post('https://phonepe-be.onrender.com/api/user/session/end', { websiteId: 10001, sessionId });
+      const response = await axios.post('https://anlyatical-dashboard.onrender.com/api/website', { websiteId: 102, sessionId });
       console.log('Session ended. Duration:', response.data.duration, 'seconds');
     }
 
     try {
       // Start the session
-      await axios.post('https://phonepe-be.onrender.com/api/user/session/start', { websiteId:10001, sessionId });
+      await axios.post('https://anlyatical-dashboard.onrender.com/api/website', { websiteId:102, sessionId });
       console.log('Session started');
 
       // Record an interaction
-      await axios.post('https://phonepe-be.onrender.com/api/user/session/interaction', { websiteId:10001, sessionId });
+      await axios.post('https://anlyatical-dashboard.onrender.com/api/website', { websiteId:102, sessionId });
       console.log('Interaction recorded');
 
       // End the session after 5 seconds
