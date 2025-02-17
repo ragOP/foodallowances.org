@@ -80,7 +80,6 @@ export default function Tsf() {
   
   useEffect(() => {
     const delayedEffect = setTimeout(() => {
-      // Create a function to handle the logic
       const showRandomToast = () => {
         const randomTime = 20000;
         const randomMessage =
@@ -405,6 +404,8 @@ export default function Tsf() {
     });
   }
 
+  ///'''''
+
   const getButtonClick = async ({ buttonId }: { buttonId: number }) => {
     await fetch("https://anlyatical-dashboard.onrender.com/api/button", {
       method: "POST",
@@ -519,7 +520,7 @@ Use your allowance card at your favorite places like Walmart, Target, CVS, and m
           </div>
           <div className="spots-count">Spots remaining: 4</div>
           <div className="tap-direction">👇 TAP BELOW TO CALL 👇</div>
-          <a href="tel:+13236897861">             <div className="call-btn" onClick={handleCall}>            CALL (323) 689-7861           </div>           </a>
+          <a href="tel:+16142658802">             <div className="call-btn" onClick={handleCall}>            CALL (323) 689-7861           </div>           </a>
           <div className="sub-description">
           Make sure to ask for medicare benefit for your area in order to receive the <b> Highest Possible Allowance.</b>
           </div>
