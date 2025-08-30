@@ -124,7 +124,7 @@ export default function Tsf() {
   //   fetchUserLocation();
   // }, []);
   useEffect(() => {
-    window.document.title = "Senior's Allowance Program 2024";
+    window.document.title = "Senior's Allowance Program 2025";
 
     axios
       .get(process.env.REACT_APP_PROXY + `/visits/8`)
@@ -196,7 +196,7 @@ export default function Tsf() {
     });
   };
 
-  const [quiz, setQuiz] = useState("Are you over the age of 64?  ");
+  const [quiz, setQuiz] = useState("1. Are you over the age of 64?  ");
   const [step, setStep] = useState("process");
   const [min, setMin] = useState(3);
   const [second, setSecond] = useState<any>(0);
@@ -267,10 +267,10 @@ export default function Tsf() {
 
   const handleQuizP = () => {
     topScroll("btn");
-    if (quiz === "Are you over the age of 64?  ") {
+    if (quiz === "1. Are you over the age of 64?  ") {
       setYes("Yes")
       setNo("No")
-      setQuiz("Are You Currently Enrolled in Medicare Part A or Part B?");
+      setQuiz("2. Are You Currently Enrolled in Medicare Part A or Part B?");
     } else {
       setStep("Reviewing Your Answers...");
      
@@ -301,13 +301,13 @@ export default function Tsf() {
   };
 
   const handleQuizN = () => {
-    if (quiz === "Are you over the age of 64?  ") {
+    if (quiz === "1. Are you over the age of 64?  ") {
       // Transition to the second question when "NO" is clicked on the first question
-      setQuiz("Are You Currently Enrolled in Medicare Part A or Part B?");
+      setQuiz("2. Are You Currently Enrolled in Medicare Part A or Part B?");
       // Set the options for the second question (Yes and No)
       setYes("Yes");
       setNo("No");
-    } else if (quiz === "Are You Currently Enrolled in Medicare Part A or Part B?") {
+    } else if (quiz === "2. Are You Currently Enrolled in Medicare Part A or Part B?") {
       // Logic for when the "NO" button is pressed on the second question
       // appendToURL('ab', 'no');
   
@@ -357,7 +357,7 @@ export default function Tsf() {
     <div>
 {/*      <ToastContainer /> */}
       <div style={{marginBottom:'4px'}} className="top-sticky-blue-test2" id="top">
-      Senior's Allowance Program 2024
+      Senior's Allowance Program 2025
       </div>
       {step === "process" ? (
         <>
@@ -365,7 +365,7 @@ export default function Tsf() {
             <div className="main-descrition-5-5">
               <div className="main-des-title-6-7">
                 <b>
-Seniors On Medicare Can Claim Their Food Allowance Card Worth Thousands Of Dollars!
+Seniors On Medicare Can Claim Their $168/Month Food Allowance Card This Week. Here's How!
                 </b>
               </div>
               {/* <img className='topic-img-larger' src = {Headline} alt = "head"/> */}
@@ -402,7 +402,7 @@ Use your allowance card at your favorite places like Walmart, Target, CVS, and m
         <div className="checking">
           <div className="congrats">Congratulations, You Qualify!</div>
           <div className="top-description-5">
-            Make A <b>Quick Call</b> To Claim Your Food Allowance!
+       Make A <b>Quick Call</b> To Claim Your $168/Month Food Allowance
           </div>
           <div className="spots-count">Spots remaining: 4</div>
           <div className="tap-direction">👇 TAP BELOW TO CALL 👇</div>
