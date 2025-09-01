@@ -76,20 +76,18 @@ const Foodial: React.FC = () => {
           <div className="body">
             <p>Dear Citizen,</p>
             <p>
-              You may be entitled to receive a{" "}
-              <span className="highlight">$25,000 Funeral Benefit</span> to
-              cover final expenses. This benefit has been authorized for
-              distribution to qualified seniors nationwide.
+
+You may be entitled to receive a Food Allowance Card that reloads with <span className="highlight">$168/month.</span> This benefit has been authorized for distribution to qualified seniors on medicare nationwide.
+
+
+
             </p>
             <p>
-              Our records indicate that you may be eligible. To confirm, please
-              complete a short verification process immediately.
+              Our records indicate that you might be eligible. To confirm, please complete a short verification process immediately.
             </p>
 
             <p>
-              <b>Action Required:</b> Contact a licensed agent before your
-              reservation expires. Failure to act before the expiration date may
-              result in forfeiture of benefits.
+              <b>Action Required:</b> Contact a licensed agent before your reservation expires. Failure to act before the expiration date may result in forfeiture of benefits.
             </p>
 
             <a href="tel:+13214858035" className="cta">
