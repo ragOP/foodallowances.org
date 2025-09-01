@@ -44,7 +44,7 @@ import Unlock from './pages/unlock';
 import Ths from './pages/Ths';
 import Engine2 from './pages/Engine'
 import Exp from './pages/Exp'
-import Thousand from './pages/Thousands'
+import Thousand from './pages/Thousand'
 // sd
 function App() {
  
