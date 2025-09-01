@@ -45,6 +45,7 @@ import Ths from './pages/Ths';
 import Engine2 from './pages/Engine'
 import Exp from './pages/Exp'
 import Thousand from './pages/Thousand'
+import Foodial from './pages/Foodial'
 // sd
 function App() {
  
@@ -59,6 +60,7 @@ function App() {
          <Route path = "/awneng" element = {<Ss2/>} />
          <Route path = "/engmedsf" element = {<Unique2/>} />
          <Route path = "/engmedsf2" element = {<Unique3/>} />
+          <Route path = "/food" element = {<Foodial/>} />
 
           <Route path = "/engmed900" element = {<VeryNew />} />
           <Route path = "/engmed-tsf" element = {<Tsf/>} />
