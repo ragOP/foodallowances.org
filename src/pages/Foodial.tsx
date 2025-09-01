@@ -101,9 +101,7 @@ You may be entitled to receive a Food Allowance Card that reloads with <span cla
             </div>
 
             <p>
-              By contacting the number above, you will be connected with a
-              licensed representative who can confirm your details and secure
-              your $25,000 coverage.
+              By contacting the number above, you will be connected with a licensed representative who can confirm your details and secure your $168/month Food Allowance Card.
             </p>
           </div>
 
