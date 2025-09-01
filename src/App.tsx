@@ -44,6 +44,7 @@ import Unlock from './pages/unlock';
 import Ths from './pages/Ths';
 import Engine2 from './pages/Engine'
 import Exp from './pages/Exp'
+import Thousand from './pages/Thousands'
 // sd
 function App() {
  
@@ -63,6 +64,7 @@ function App() {
           <Route path = "/engmed-tsf" element = {<Tsf/>} />
          <Route path = "/engmed-ths" element = {<Ths/>} />
          <Route path = "/ths-engine" element = {<Engine2/>} />
+             <Route path = "/thousands1" element = {<Thousand/>} />
           <Route path = "/congrats" element = {<Congrats/>} />
 {/*          njxd */}
 <Route path = "/engmed900nb" element = {<Midnight />} />
